@@ -1,0 +1,67 @@
+<!-- NG-ZORRO -->
+
+<nz-layout>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate">
+    <div class="logo">后台管理系统 </div>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
+     
+      <li nz-submenu>
+        <span title><i nz-icon type="user"></i><span class="nav-text">用户管理</span></span>
+        <ul>
+            <li nz-menu-item routerLink="/home">首页</li>
+            <li nz-menu-item routerLink="/news">新文</li>
+
+        </ul>
+      </li>
+
+      <li nz-submenu>
+        <span title><i nz-icon type="team"></i><span class="nav-text" routerLink="/user">用户</span></span>
+        <ul>
+          <li nz-menu-item routerLink="/user/list">用户列表</li>
+          <li nz-menu-item routerLink="/user/vip">vip</li>
+        </ul>
+      </li>
+      <li nz-menu-item>
+        <span><i nz-icon type="file"></i><span class="nav-text">File</span></span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header style="background: #fff; padding:0;">
+      <i
+        class="trigger"
+        nz-icon
+        [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        (click)="isCollapsed = !isCollapsed"
+      ></i>
+
+      <nz-dropdown class="fr">
+          <a nz-dropdown> 管理员<i nz-icon type="down"></i> </a>
+          <ul nz-menu nzSelectable>
+            <li nz-menu-item>
+              <a>退出</a>
+            </li>
+          </ul>
+        </nz-dropdown>
+
+    </nz-header>
+    <nz-content style="margin:0 16px;">
+      <nz-breadcrumb style="margin:16px 0;">
+        <nz-breadcrumb-item>User</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+      </nz-breadcrumb>
+      <div style="padding:24px; background: #fff; min-height: 360px;">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer style="text-align: center;">Ant Design ©2019 Implement By Angular</nz-footer>
+  </nz-layout>
+</nz-layout>
+<ng-template #trigger>
+  <i nz-icon type="up"></i>
+</ng-template>
+
+
+
+
+
